@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane id="mainBorderPane" fx:id="mainBorderPane_fxid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #faf9f7;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <bottom>
+      <HBox minHeight="-Infinity" prefHeight="80.0" prefWidth="600.0" style="-fx-border-color: #FAF9F7;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="80.0" prefWidth="117.0">
+               <children>
+                  <Label id="qtyDice_to_roll_label_STATIC" alignment="CENTER" prefHeight="17.0" prefWidth="123.0" style="-fx-alignment: center;" text="Qty of Dice to Roll" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <Label id="dice_being_rolled_textfield" fx:id="dice_being_rolled_textfield_fxid" alignment="CENTER" prefHeight="17.0" prefWidth="122.0" style="-fx-font-weight: bold;" text="x1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button id="qtyDice_add_button" fx:id="qtyDice_add_button_fxid" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#increaseDiceRolled" prefHeight="26.0" prefWidth="32.0" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView id="qtyDice_add_button_image" fx:id="qtyDice_add_button_image_fxid" fitHeight="36.0" fitWidth="40.0">
+                                 <image>
+                                    <Image url="@drawables/plus_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button id="qtyDice_remove_button" fx:id="qtyDice_remove_button_fxid" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decreaseDiceRolled" prefHeight="26.0" prefWidth="32.0">
+                           <graphic>
+                              <ImageView id="qtyDice_remove_button_image" fx:id="qtyDice_remove_button_image_fxid" fitHeight="36.0" fitWidth="40.0">
+                                 <image>
+                                    <Image url="@drawables/minus_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets left="10.0" />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin></VBox>
+            <VBox id="diceRoller_Vbox_d4" prefHeight="68.0" prefWidth="54.0">
+               <children>
+                  <Button id="rollD4_button" fx:id="rollD4_button_fxid" mnemonicParsing="false" onAction="#rollD4" prefHeight="18.0" prefWidth="57.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="d4_button_image" fx:id="d4_button_image_fxid" fitHeight="40.0" fitWidth="50.0">
+                           <image>
+                              <Image url="@drawables/d4.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Label id="d4_results_display_label" fx:id="d4_results_display_label_fxid" alignment="CENTER" prefHeight="30.0" prefWidth="52.0" text="d4 result" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="1.0" left="35.0" right="5.0" top="2.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox id="diceRoller_Vbox_d6" layoutX="111.0" layoutY="11.0" prefHeight="68.0" prefWidth="54.0">
+               <children>
+                  <Button id="rollD6_button" fx:id="rollD6_button_fxid" mnemonicParsing="false" onAction="#rollD6" prefHeight="18.0" prefWidth="57.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="d6_button_image" fx:id="d6_button_image_fxid" fitHeight="40.0" fitWidth="50.0">
+                           <image>
+                              <Image url="@drawables/d6.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label id="d6_results_display_label" fx:id="d6_results_display_label_fxid" alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="d6 result" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="1.0" left="10.0" right="5.0" top="2.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox id="diceRoller_Vbox_d8" layoutX="165.0" layoutY="11.0" prefHeight="68.0" prefWidth="54.0">
+               <children>
+                  <Button id="rollD8_button" fx:id="rollD8_button_fxid" mnemonicParsing="false" onAction="#rollD8" prefHeight="18.0" prefWidth="57.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="d8_button_image" fx:id="d8_button_image_fxid" fitHeight="40.0" fitWidth="50.0">
+                           <image>
+                              <Image url="@drawables/d8.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label id="d8_results_display_label" fx:id="d8_results_display_label_fxid" alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="d8 result" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="1.0" left="10.0" right="5.0" top="2.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox id="diceRoller_Vbox_d10" layoutX="219.0" layoutY="11.0" prefHeight="68.0" prefWidth="54.0">
+               <children>
+                  <Button id="rollD10_button" fx:id="rollD10_button_fxid" mnemonicParsing="false" onAction="#rollD10" prefHeight="18.0" prefWidth="57.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="d10_button_image" fx:id="d10_button_image_fxid" fitHeight="40.0" fitWidth="50.0">
+                           <image>
+                              <Image url="@drawables/d10.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label id="d10_results_display_label" fx:id="d10_results_display_label_fxid" alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="d10 result" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="1.0" left="10.0" right="5.0" top="2.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox id="diceRoller_Vbox_d12" layoutX="273.0" layoutY="11.0" prefHeight="68.0" prefWidth="54.0">
+               <children>
+                  <Button id="rollD12_button" fx:id="rollD12_button_fxid" mnemonicParsing="false" onAction="#rollD12" prefHeight="18.0" prefWidth="57.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="d12_button_image" fx:id="d12_button_image_fxid" fitHeight="40.0" fitWidth="50.0">
+                           <image>
+                              <Image url="@drawables/d12.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label id="d12_results_display_label" fx:id="d12_results_display_label_fxid" alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="d12 result" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="1.0" left="10.0" right="5.0" top="2.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox id="diceRoller_Vbox_d20" layoutX="327.0" layoutY="11.0" prefHeight="68.0" prefWidth="54.0">
+               <children>
+                  <Button id="rollD20_button" fx:id="rollD20_button_fxid" mnemonicParsing="false" onAction="#rollD20" prefHeight="18.0" prefWidth="57.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="d20_button_image" fx:id="d20_button_image_fxid" fitHeight="40.0" fitWidth="50.0">
+                           <image>
+                              <Image url="@drawables/d20.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label id="d20_results_display_label" fx:id="d20_results_display_label_fxid" alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="d20 result" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="1.0" left="10.0" right="5.0" top="2.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox id="diceRoller_Vbox_d100" layoutX="381.0" layoutY="11.0" prefHeight="68.0" prefWidth="54.0">
+               <children>
+                  <Button id="rollD100_button" fx:id="rollD100_button_fxid" mnemonicParsing="false" onAction="#rollD100" prefHeight="18.0" prefWidth="57.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="d100_button_image" fx:id="d100_button_image_fxid" fitHeight="40.0" fitWidth="50.0">
+                           <image>
+                              <Image url="@drawables/d100.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label id="d100_results_display_label" fx:id="d100_results_display_label_fxid" alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="d100 result" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="1.0" left="10.0" right="5.0" top="2.0" />
+               </HBox.margin>
+            </VBox>
+            <StackPane prefHeight="80.0" prefWidth="108.0">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="87.0">
+                     <image>
+                        <Image url="@drawables/xp_icon.png" />
+                     </image>
+                  </ImageView>
+                  <Label id="XP_total_label" fx:id="XP_total_label_fxid" alignment="CENTER" prefHeight="17.0" prefWidth="97.0" text="0" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </StackPane>
+            <VBox prefHeight="80.0" prefWidth="39.0">
+               <children>
+                  <Button id="xp_add_button" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#increaseXP" prefHeight="26.0" prefWidth="32.0" textAlignment="CENTER" fx:id="xp_add_button_fxid">
+                     <graphic>
+                        <ImageView id="xp_add_button_image" fitHeight="36.0" fitWidth="40.0" fx:id="xp_add_button_image_fxid">
+                           <image>
+                              <Image url="@drawables/plus_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button id="xp_remove_button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decreaseXP" prefHeight="26.0" prefWidth="32.0" fx:id="xp_remove_button_fxid">
+                     <graphic>
+                        <ImageView id="xp_remove_button_image" fitHeight="36.0" fitWidth="40.0" fx:id="xp_remove_button_image_fxid">
+                           <image>
+                              <Image url="@drawables/minus_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin></HBox>
+   </bottom>
+   <left>
+      <VBox prefHeight="308.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="147.0" text="Character Generation">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button id="generate_stat_block_button" fx:id="generate_stat_block_button_fxid" mnemonicParsing="false" onAction="#randomlyGenerateStatBlock" prefHeight="25.0" prefWidth="163.0" text="Generate Stat Block" />
+            <HBox prefHeight="18.0" prefWidth="121.0">
+               <children>
+                  <Label id="generated_STR_display_label" fx:id="generated_STR_display_label_fxid" minWidth="-Infinity" prefWidth="21.0" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label id="generated_DEX_display_label" fx:id="generated_DEX_display_label_fxid" layoutX="12.0" layoutY="12.0" minWidth="-Infinity" prefWidth="21.0" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label id="generated_CON_display_label" fx:id="generated_CON_display_label_fxid" layoutX="27.0" layoutY="10.0" minWidth="-Infinity" prefWidth="21.0" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label id="generated_INT_display_label" fx:id="generated_INT_display_label_fxid" layoutX="46.0" layoutY="12.0" minWidth="-Infinity" prefWidth="21.0" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label id="generated_WIS_display_label" fx:id="generated_WIS_display_label_fxid" layoutX="61.0" layoutY="10.0" minWidth="-Infinity" prefWidth="21.0" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label id="generated_CHR_display_label" fx:id="generated_CHR_display_label_fxid" layoutX="74.0" layoutY="10.0" minWidth="-Infinity" prefWidth="21.0" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="11.0" layoutY="53.0" prefHeight="18.0" prefWidth="121.0">
+               <children>
+                  <Label id="generated_STR_display_label_STATIC" minWidth="-Infinity" prefWidth="20.0" text="Str">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="4.0" right="3.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Label id="generated_DEX_display_label_STATIC" layoutX="12.0" layoutY="12.0" minWidth="-Infinity" prefWidth="20.0" text="Dex">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="3.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Label id="generated_CON_display_label_STATIC" layoutX="27.0" layoutY="10.0" minWidth="-Infinity" prefWidth="20.0" text="Con">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="3.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Label id="generated_INT_display_label_STATIC" layoutX="46.0" layoutY="12.0" minWidth="-Infinity" prefWidth="20.0" text="Int">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="3.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Label id="generated_WIS_display_label_STATIC" layoutX="61.0" layoutY="10.0" minWidth="-Infinity" prefWidth="20.0" text="Wis">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="3.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Label id="generated_CHR_display_label_STATIC" layoutX="74.0" layoutY="10.0" minWidth="-Infinity" prefWidth="20.0" text="Chr">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="23.0" prefWidth="121.0">
+               <children>
+                  <CheckBox id="lock_stats_chk" fx:id="lock_stats_chk_fxid" mnemonicParsing="false" onAction="#lockAbilityScores" prefHeight="15.0" prefWidth="151.0" text="Lock Abilities">
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #E6E6E6;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="0.0" prefWidth="147.0" style="-fx-font-weight: bold;" text="MAGIC" />
+                  <Text id="spellcasting_explanation" fx:id="spellcasting_explanation_fxid" strokeType="OUTSIDE" strokeWidth="0.0" text="Explain dice pool or no magic" wrappingWidth="143.80338859558105">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+         </children></VBox>
+   </left>
+   <top>
+      <HBox prefHeight="110.0" prefWidth="600.0" style="-fx-background-color: #E6E6E6;" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefHeight="98.0" prefWidth="150.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="16.0" prefWidth="35.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="113.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label id="character_name_label_STATIC" text="Name" />
+                  <Label id="character_race_label_STATIC" text="Race" GridPane.rowIndex="1" />
+                  <Label id="character_level_label_STATIC" text="Level" GridPane.rowIndex="3" />
+                  <Label id="character_class_label_STATIC" text="Class" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="choose_race_combobox_fxid" onAction="#race_chosen" prefWidth="150.0" promptText="Choose race" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField id="character_name_textfield" fx:id="character_name_textfield_fxid" promptText="Enter name" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <HBox prefHeight="27.0" prefWidth="21.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label id="class_level_display_label" fx:id="class_level_display_label_fxid" prefHeight="26.0" prefWidth="39.0" text="1" textAlignment="CENTER" />
+                        <Button id="level_add_button" fx:id="level_add_button_fxid" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#increaseLevel" prefHeight="26.0" prefWidth="32.0" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView id="level_add_button_image" fx:id="level_add_button_image_fxid" fitHeight="25.0" fitWidth="30.0">
+                                 <image>
+                                    <Image url="@drawables/plus_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="level_remove_button_fxid" layoutX="80.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decreaseLevel" prefHeight="26.0" prefWidth="32.0">
+                           <graphic>
+                              <ImageView id="level_remove_button_image" fx:id="level_remove_button_image_fxid" fitHeight="20.0" fitWidth="30.0">
+                                 <image>
+                                    <Image url="@drawables/minus_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <ComboBox fx:id="choose_class_combobox_fxid" onAction="#class_chosen" prefWidth="150.0" promptText="Choose Class" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <VBox alignment="CENTER" minWidth="-Infinity" prefHeight="98.0" prefWidth="124.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" style="-fx-font-weight: bold;" text="Strength" textAlignment="CENTER" />
+                  <StackPane prefHeight="40.0" prefWidth="62.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@drawables/scroll.png" />
+                           </image>
+                        </ImageView>
+                        <Label id="STR_display_label" fx:id="STR_display_label_fxid" style="-fx-font-weight: bold;">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                     </children>
+                  </StackPane>
+                  <Label id="STR_achieves_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Smashing, lifting and opening" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label id="STR_avoids_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Paralysis and petrification" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="161.0" layoutY="11.0" minWidth="-Infinity" prefHeight="98.0" prefWidth="124.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" style="-fx-font-weight: bold;" text="Dexterity" textAlignment="CENTER" />
+                  <StackPane prefHeight="40.0" prefWidth="62.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@drawables/scroll.png" />
+                           </image>
+                        </ImageView>
+                        <Label id="DEX_display_label" fx:id="DEX_display_label_fxid" style="-fx-font-weight: bold;">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                     </children>
+                  </StackPane>
+                  <Label id="DEX_achieves_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Precision, agility and deftness" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label id="DEX_avoids_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Falling and explosive energy" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="236.0" layoutY="11.0" minWidth="-Infinity" prefHeight="98.0" prefWidth="124.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" style="-fx-font-weight: bold;" text="Constitution" textAlignment="CENTER" />
+                  <StackPane prefHeight="40.0" prefWidth="62.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@drawables/scroll.png" />
+                           </image>
+                        </ImageView>
+                        <Label id="CON_display_label" fx:id="CON_display_label_fxid" style="-fx-font-weight: bold;">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                     </children>
+                  </StackPane>
+                  <Label id="CON_achieves_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Stamina and endurance" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label id="CON_avoids_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Fatigue, poison and draining effects" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="311.0" layoutY="11.0" minWidth="-Infinity" prefHeight="98.0" prefWidth="124.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" style="-fx-font-weight: bold;" text="Intelligence" textAlignment="CENTER" />
+                  <StackPane prefHeight="40.0" prefWidth="62.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@drawables/scroll.png" />
+                           </image>
+                        </ImageView>
+                        <Label id="INT_display_label" fx:id="INT_display_label_fxid" style="-fx-font-weight: bold;">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                     </children>
+                  </StackPane>
+                  <Label id="INT_achieves_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Knowledge and interpretation" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label id="INT_avoids_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Forgetfulness and puzzlement" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="386.0" layoutY="11.0" minWidth="-Infinity" prefHeight="98.0" prefWidth="124.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" style="-fx-font-weight: bold;" text="Wisdom" textAlignment="CENTER" />
+                  <StackPane prefHeight="40.0" prefWidth="62.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@drawables/scroll.png" />
+                           </image>
+                        </ImageView>
+                        <Label id="WIS_display_label" fx:id="WIS_display_label_fxid" style="-fx-font-weight: bold;">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                     </children>
+                  </StackPane>
+                  <Label id="WIS_achieves_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Insight and detection" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label id="WIS_avoids_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Confusion, fear and deception" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="461.0" layoutY="11.0" minWidth="-Infinity" prefHeight="98.0" prefWidth="124.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" style="-fx-font-weight: bold;" text="Charisma" textAlignment="CENTER" />
+                  <StackPane prefHeight="40.0" prefWidth="62.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@drawables/scroll.png" />
+                           </image>
+                        </ImageView>
+                        <Label id="CHR_display_label" fx:id="CHR_display_label_fxid" style="-fx-font-weight: bold;">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                     </children>
+                  </StackPane>
+                  <Label id="CHR_achieves_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Persuasion and performance" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label id="CHR_avoids_STATIC" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Enchanetment and compulsion" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children></HBox>
+   </top>
+   <right>
+      <VBox prefHeight="220.0" prefWidth="107.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="15.0" prefWidth="141.0" style="-fx-font-weight: bold;" text="Armor Class">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <StackPane prefHeight="79.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="95.0">
+                     <image>
+                        <Image url="@drawables/armor_class.png" />
+                     </image>
+                  </ImageView>
+                  <Label id="AC_display_label" fx:id="AC_display_label_fxid" prefHeight="30.0" prefWidth="28.0" style="-fx-font-style: bold;" text="10" textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+            <Label alignment="CENTER" layoutX="11.0" layoutY="11.0" prefHeight="15.0" prefWidth="141.0" style="-fx-font-weight: bold;" text="Hit Points">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin></Label>
+            <StackPane layoutX="11.0" layoutY="28.0" prefHeight="79.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="95.0">
+                     <image>
+                        <Image url="@drawables/hit_points.png" />
+                     </image>
+                  </ImageView>
+                  <Label id="HP_display_label" fx:id="HP_display_label_fxid" alignment="TOP_CENTER" prefHeight="48.0" prefWidth="123.0" style="-fx-font-style: bold;" text="4 / 4" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button id="hp_add_button" fx:id="hp_add_button_fxid" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#increaseHP" prefHeight="32.0" prefWidth="57.0" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView id="hp_add_button_image" fx:id="hp_add_button_image_fxid" fitHeight="30.0" fitWidth="55.0">
+                           <image>
+                              <Image url="@drawables/plus_to_life.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="hp_remove_button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decreaseHP" prefHeight="32.0" prefWidth="57.0">
+                     <graphic>
+                        <ImageView id="hp_remove_button_image" fx:id="hp_remove_button_fxid" fitHeight="30.0" fitWidth="55.0">
+                           <image>
+                              <Image url="@drawables/minus_to_life.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children></VBox>
+   </right>
+   <center>
+      <HBox prefHeight="308.0" prefWidth="455.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox minWidth="-Infinity" prefHeight="208.0" prefWidth="400.0">
+               <children>
+                  <VBox prefHeight="299.0" prefWidth="391.0">
+                     <children>
+                        <Label id="class_abilities_label_STATIC" prefHeight="17.0" prefWidth="276.0" text="Class Abilities">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label id="class_ability_01_display_label" fx:id="class_ability_01_display_label_fxid" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="350.0" text="-" wrapText="true" />
+                        <Label id="class_ability_02_display_label" fx:id="class_ability_02_display_label_fxid" layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="350.0" text="-" wrapText="true" />
+                        <Label id="class_ability_03_display_label" fx:id="class_ability_03_display_label_fxid" layoutX="10.0" layoutY="46.0" prefHeight="17.0" prefWidth="350.0" text="-" wrapText="true" />
+                        <Label id="class_ability_04_display_label" fx:id="class_ability_04_display_label_fxid" layoutX="10.0" layoutY="63.0" prefHeight="17.0" prefWidth="350.0" text="-" wrapText="true" />
+                        <Label id="racial_abilities_label_STATIC" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="276.0" text="Race Abilities">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label id="racial_ability_01_display_label" fx:id="racial_ability_01_display_label_fxid" layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="350.0" text="-" wrapText="true" />
+                        <Label id="racial_ability_02_display_label" fx:id="racial_ability_02_display_label_fxid" layoutX="10.0" layoutY="116.0" prefHeight="17.0" prefWidth="350.0" text="-" wrapText="true" />
+                        <Label id="racial_ability_03_display_label" fx:id="racial_ability_03_display_label_fxid" layoutX="10.0" layoutY="116.0" prefHeight="17.0" prefWidth="350.0" text="-" wrapText="true" />
+                        <Label id="racial_ability_04_display_label" fx:id="racial_ability_04_display_label_fxid" layoutX="10.0" layoutY="150.0" prefHeight="17.0" prefWidth="350.0" text="-" wrapText="true" />
+                        <Label fx:id="testing_field_fxid">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Label>
+                        <Label text="  * Denotes that ability has been added in already" textFill="RED">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="racial_abilities_label_STATIC" layoutX="10.0" layoutY="117.0" prefHeight="17.0" prefWidth="276.0" text="Equipment">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label id="class_equipment_display_label" fx:id="class_equipment_display_label_fxid" layoutX="10.0" layoutY="136.0" prefHeight="17.0" prefWidth="350.0" text="-" wrapText="true" />
+                        <Label id="racial_equipment_display_label" fx:id="racial_equipment_display_label_fxid" layoutX="10.0" layoutY="136.0" prefHeight="17.0" prefWidth="350.0" text="-" wrapText="true" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></VBox>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" minWidth="-Infinity" prefHeight="299.0" prefWidth="223.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="141.0" style="-fx-font-weight: bold;" text="Attack">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <StackPane prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="80.0" fitWidth="100.0">
+                           <image>
+                              <Image url="@drawables/attack_d8.png" />
+                           </image>
+                        </ImageView>
+                        <Label id="attack_display_label" fx:id="attack_display_label_fxid" alignment="CENTER" prefHeight="17.0" prefWidth="125.0" text="1/d class die" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
+                     </children>
+                  </StackPane>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="141.0" style="-fx-font-weight: bold;" text="Spell Casting">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="80.0" fitWidth="100.0">
+                           <image>
+                              <Image url="@drawables/magic.png" />
+                           </image>
+                        </ImageView>
+                        <VBox minHeight="-Infinity" prefHeight="90.0" prefWidth="223.0">
+                           <children>
+                              <Label id="dicepool_display_label" fx:id="dicepool_display_label_fxid" alignment="CENTER" prefHeight="41.0" prefWidth="228.0" text="level/d6 or non-cast" textAlignment="CENTER" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <Label id="spells_per_day" fx:id="spells_per_day_fxid" alignment="CENTER" prefHeight="17.0" prefWidth="227.0" style="-fx-font-weight: bold;" text="x spells/day" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
