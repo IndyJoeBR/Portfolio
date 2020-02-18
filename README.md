@@ -14,4 +14,4 @@ character sheet.
 I disagreed with some of the material in 1 Pot RPG and made those changes.  One such change was adding equipment.  It is,
 primarily, for flavor.  But the intent is as the character levels, his equipment would automatically upgrade.
 
-##This is a work in progress
+## This is a work in progress
